@@ -1,0 +1,58 @@
+.signalForm 
+   form(class="w-full max-w-lg")
+        div(class="flex flex-wrap -mx-3 mb-6")
+            div(class="w-full px-3 mb-6 md:mb-0")
+                label(
+                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
+                    for="grid-first-name") Name
+                    input(
+                        v-model="signalObject.Name"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                        id="grid-first-name" 
+                        type="text" 
+                        placeholder="Jane")
+            div(class="w-full px-3 mb-6 md:mb-0")
+                label(
+                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
+                    for="grid-signal-type") Signal Type
+                    input(
+                        v-model="signalObject"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                        id="grid-signal-type" 
+                        type="number" 
+                        placeholder="Police")
+            div(class="w-full px-3")  
+                label(
+                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
+                    for="grid-address"
+                    ) Address
+                .geocoder.mb-8(
+                    id="geocoder" 
+                    v-model="signalObject.Name"
+                    )                       
+            .map(
+                class="w-full px-3"
+                )
+                VueMapboxComponent.w-full.h-auto(
+                    :center="center"
+                    :pins="[center]"
+                    :zoom="zoom"
+                    :zIndex="zIndex"
+                    mapClass="modalMap"
+                    draggable=true
+                    @get-address="getAddress"
+                )
+        //--Actions
+        div(
+            class="flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b")
+            button(
+                class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1" 
+                type="button" 
+                style="transition: all .15s ease" 
+                v-on:click="close") Close
+            button(
+                class="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 border border-solid border-green-500 hover:bg-green-500 hover:text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none ml-6" 
+                :class="isDisabled ? 'opacity-50 cursor-not-allowed' : ''"
+                type="button" 
+                style="transition: all .15s ease" 
+                v-on:click="save") Save Changes

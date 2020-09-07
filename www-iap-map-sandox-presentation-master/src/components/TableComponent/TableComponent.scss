@@ -1,0 +1,23 @@
+table {
+    font-family: 'Open Sans', sans-serif;
+    width: 750px;
+    border-collapse: collapse;
+    border: 1px solid #e2e8f0;
+    margin: 10px 10px 0 10px;
+  }
+  
+  table th {
+    text-align: left;
+    padding: 8px;
+    min-width: 30px;
+  }
+  
+  table td {
+    text-align: left;
+    padding: 8px;
+    border-right: 2px solid #e2e8f0;
+  }
+  table td:last-child {
+    border-right: none;
+  }
+  

@@ -1,0 +1,28 @@
+# Auto-assign github reviewers
+# Github app: https://github.com/apps/auto-assign/
+
+addReviewers: true
+
+addAssignees: false
+
+reviewers:
+  - bpfoster-banjo
+  - brantcdolling
+  - david-banjo
+  - farahsfi
+  - gkeller-at-banjo
+  - iamface
+  - mikecheck12
+  - nyabutibanjo
+  - tanner-banjo
+  - tdowdle
+  - tzwygart
+
+# keywords in pull request will skip adding reviewers
+skipKeywords:
+  - wip
+  - draft
+
+# number of reviewers to add to the pull request
+# 0 to add all reviewers (default: 0)
+numberOfReviewers: 0

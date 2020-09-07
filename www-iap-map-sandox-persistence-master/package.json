@@ -1,0 +1,26 @@
+{
+   "name": "iap-persistence",
+   "version": "0.0.6",
+   "description": "PersistenceLayer for data interaction",
+   "devDependencies": {
+      "ts-node": "3.3.0",
+      "@types/node": "^8.0.29",
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {
+      "dotenv": "^8.2.0",
+      "pg": "^7.3.0",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.25"
+   },
+   "scripts": {
+      "start:dev": "npm run updateLink && ts-node src/index.ts",
+      "prepublish": "npm link iap-domain & tsc",
+      "updateLink": "tsc && npm link iap-domain & npm link"
+   },
+   "main": "build/index.js",
+   "types": "build/index.d.ts",
+   "files": [
+      "build/Repositories/*"
+   ]
+}

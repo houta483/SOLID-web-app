@@ -1,0 +1,23 @@
+<svg version="1.1" viewBox="0 0 31 48" xmlns="http://www.w3.org/2000/svg">
+<title>map-pin</title>
+<desc>Created with Sketch.</desc>
+<defs>
+<radialGradient id="a" r="54.607%" gradientTransform="translate(.5 .5) scale(.61128 1) rotate(90) translate(-.5 -.5)">
+<stop stop-opacity=".64882" offset="0"/>
+<stop stop-color="#fff" stop-opacity="0" offset="1"/>
+</radialGradient>
+</defs>
+<g fill="none" fill-rule="evenodd">
+<g transform="translate(-1100 -264)">
+<g transform="translate(189 215)">
+<g transform="translate(912 50)">
+<g transform="translate(14.5 23.5) scale(-1 1) translate(-14.5 -23.5)" fill-rule="nonzero">
+<ellipse cx="14.5" cy="40.935" rx="9.9211" ry="6.0645" fill="url(#a)" fill-opacity=".4"/>
+<path d="m4.6865 25.007c-2.8811-2.6324-4.6865-6.4084-4.6865-10.603 0-7.9547 6.4919-14.403 14.5-14.403 8.0081 0 14.5 6.4485 14.5 14.403 0 4.6522-2.2205 8.7893-5.6661 11.423-0.30333 0.31258-0.62274 0.6333-0.95825 0.96216-6.6661 6.534-7.3117 12.442-7.8336 12.442-0.5431 0-1.7357-7.0854-7.9449-12.442-0.71023-0.6127-1.3471-1.2065-1.9106-1.7813z" fill="#2E3232" stroke="#fff"/>
+<ellipse cx="14.5" cy="14.403" rx="5.3421" ry="5.3065" fill="#fff"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

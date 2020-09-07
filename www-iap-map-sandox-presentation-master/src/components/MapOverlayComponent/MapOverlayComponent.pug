@@ -1,0 +1,17 @@
+.MapOverlayComponent
+    div(
+      class="w-56 rounded overflow-hidden shadow-lg overflow-x-hidden overflow-y-auto fixed inset-0 z-20 outline-none focus:outline-none flex bg-white my-16 mx-2")
+      div(class="px-6 py-4")
+        ul
+          .name.mb-2 Layers
+          li
+            .checkInput(v-for="option in layerOptions")
+              input(
+                :id="option"
+                type="checkbox" 
+                class="form-checkbox h-5 w-5 text-green-600"
+                v-model="selectedLayers"
+                :value="option"
+                @change="checkboxEventHandler($event, option)"
+                )
+              label(class="ml-2 text-gray-700") {{option}}

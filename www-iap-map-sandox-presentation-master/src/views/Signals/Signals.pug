@@ -1,0 +1,59 @@
+div
+    .header
+    div.flex.justify-center
+        button(
+            class="h-12 mt-2 w-64 rounded-full border-teal-500 border-solid border-2 hover:bg-teal-500 hover:text-white text-teal-500"
+            @click="enableAdd"
+        ) Add New Signal
+
+    div.flex.justify-center
+        TableComponent(
+            :data="signals"
+            @edit-action="editAction"
+            @delete-action="deleteAction"
+        )
+    ModalComponent(
+        v-if="isDelete === true && isAdd === false"
+        :showModal="showModal"
+        :modalTitle="DeleteSignalText"
+        @close="closeModal"
+    )
+    ModalComponent(
+        v-if="isDelete === false && isAdd === true"
+        :showModal="showModal"
+        :modalTitle="AddSignalText"
+        @close="closeModal"
+    )
+    ModalComponent(
+        v-if="isDelete === false && isAdd === false"
+        :showModal="showModal"
+        :modalTitle="EditSignalText"
+        @close="closeModal"
+    ) 
+        template(v-slot:body)
+            div(v-if="isDelete === true && isAdd === false") 
+                p Are you sure you want to delete this signal?
+                button.w-32.h-8.border.mx-24.rounded.border-solid.mt-4.self-auto.bg-red-600.text-white(
+                    @click="deleteSignal()"
+                ) Delete
+
+            // addNew
+            SignalFormComponent(
+                v-else-if="isDelete === false && isAdd === true"
+                :signalLonLat="[-111.8910, 40.7608]"
+                :zoom="6"
+                :signal="selectedSignal"
+                @close="closeModal"
+                @saveSignal="addNewSignal"
+            )
+
+            // edit
+            SignalFormComponent(
+                v-else-if="isDelete === false && isAdd === false"
+                :signalLonLat="signalLonLat"
+                :zoom="15"
+                :signal="selectedSignal"
+                @close="closeModal"
+                @saveSignal="editSignal"
+            )
+            

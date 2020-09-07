@@ -1,0 +1,16 @@
+{
+   "name": "iap-domain",
+   "version": "0.0.4",
+   "description": "Domain Project",
+   "devDependencies": {
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {},
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "prepublish": "tsc",
+      "updateLink": "tsc & npm link"
+   },
+   "main": "build/index.js",
+   "types": "build/index.d.ts"
+}

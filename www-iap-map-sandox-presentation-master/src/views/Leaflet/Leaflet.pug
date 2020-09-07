@@ -1,0 +1,20 @@
+.leafletMap.h-screen
+    l-map(
+        :zoom="zoom" 
+        :center="center"
+        ref="myMap"
+    )
+        l-tile-layer(
+            :url="url" 
+            :attribution="attribution"
+            layer-type="base" )
+        l-marker(
+            v-for="marker in markers"
+            :lat-lng="marker.position"
+            :key="marker.id"
+            ref="marker"
+            )
+            l-popup(
+                :content="marker.text" 
+                :options="{ autoClose: false, closeOnClick: false }"
+                )

@@ -1,0 +1,10 @@
+.map
+  VueMapboxComponent(
+    :center="center"
+    :pins="[]"
+    :zoom="zoom"
+    mapClass="mainMap"
+    @add-choropleth="addChoropleth"
+    mapStyle="light-v10"
+    :layers="['choropleth']"
+  )

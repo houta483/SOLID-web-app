@@ -1,0 +1,22 @@
+
+div
+  nav.flex.items-center.justify-between.flex-wrap.bg-teal-500.p-6
+    .logo.flex.items-center.flex-shrink-0.text-white.mr-6.cursor-pointer(
+      @click="$router.push({ name: 'Services' })"
+    )
+      span.font-semibold.text-xl.tracking-tight MAP
+    
+    div.block.dropdown
+      button(
+        @click="toggleMenu()"
+        class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white")
+        include ../../src/assets/img/list-view.svg
+
+  ul(
+    :class="isOpen ? 'block' : 'hidden'"
+    class="dropdown-menu absolute right-0 text-gray-700 pt-1"
+    )
+    li.cursor-pointer(v-for="link in NavLinks")
+      a(
+        class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" 
+       @click="navigateTo(link.router)") {{link.name}}

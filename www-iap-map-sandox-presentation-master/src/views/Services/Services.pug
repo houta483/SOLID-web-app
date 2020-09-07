@@ -1,0 +1,17 @@
+div
+    .container.mx-auto.h-screen
+        .grid.gap-4(class="sm:grid-cols-2 lg:grid-cols-3")
+            a.cursor-pointer(
+                v-for="card in cards"
+                @click="goToMap(card.router)"
+            )
+                .max-w-sm.rounded.overflow-hidden.shadow-lg.p-10.ml-auto.mr-auto.mt-10.mb-10
+                    img.w-full.h-20(
+                        :src="card.image"
+                        )
+                    .px-6.py-4
+                        .font-bold.text-xl.mb-2.text-center {{ card.name }}
+        
+
+
+                

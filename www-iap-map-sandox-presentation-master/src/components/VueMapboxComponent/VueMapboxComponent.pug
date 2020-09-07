@@ -1,0 +1,39 @@
+.mapComponent
+    MglMap(
+        ref="mapRef"
+        :class="mapClass"
+        :accessToken="accessToken" 
+        :mapStyle="mapStyleAPI"
+        :center="center"
+        :zoom="zoom"
+        @contextmenu="rightClickEventHandler($event)"
+        @load="addSource"
+    )
+        MglMarker(
+            v-if="showMarker"
+            v-for="(pin, index) in pins"
+            :key="index"
+            :coordinates="getPinArray(pin)"
+            :draggable= "draggable"
+            @dragend="onDragEnd")
+                .pinSVG(
+                    :class="zIndex"
+                    slot="marker")
+                    include ../../../src/assets/img/map-pin.svg  
+                MglPopup(:coordinates="getPinArray(pin)")
+                    .popupBody.p-1
+                        .info {{ pin }}        
+        MglNavigationControl(
+            v-if="showNavigation"
+            position="top-right") 
+        MglGeolocateControl(
+            v-if="showGeolocation"
+            position="top-right")
+        //- MglGeojsonLayer(
+        //-     v-if="layer && layer.indexOf('geoJson') > -1"
+        //-     :sourceId="geoJson.geoJsonSource.data.id"
+        //-     :source="geoJson.geoJsonSource"
+        //-     layerId="geoJson"
+        //-     :layer="geoJson.geoJsonlayer"
+        //- )  
+    
